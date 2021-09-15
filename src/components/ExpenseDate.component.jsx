@@ -1,5 +1,6 @@
 //Styles
 import "./ExpenseDate.component.css";
+//Components
 
 function ExpenseDate({ date }) {
   const month = date.toLocaleString("en-US", { month: "long" });
