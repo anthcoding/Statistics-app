@@ -1,5 +1,5 @@
 //Styles
-import "./ExpenseItem.css";
+import "./ExpenseItem.component.css";
 //Components
 import ExpenseDate from "./ExpenseDate.component.jsx";
 
