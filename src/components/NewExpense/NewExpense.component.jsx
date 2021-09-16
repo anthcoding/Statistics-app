@@ -2,11 +2,21 @@
 import "./NewExpense.component.css";
 //Components
 import FormExpense from "./FormExpense.component";
+//UUID
+import uuid from "react-uuid";
 
-const NewExpense = () => {
+const NewExpense = ({ saveExpenseDataHandlerSecond }) => {
+  const saveExpenseDataHandler = (expense) => {
+    const expenseData = {
+      ...expense,
+      id: uuid(),
+    };
+    saveExpenseDataHandlerSecond(expenseData);
+  };
+
   return (
     <div className="new-expense">
-      <FormExpense />
+      <FormExpense onSaveExpensedata={saveExpenseDataHandler} />
     </div>
   );
 };

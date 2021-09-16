@@ -3,18 +3,18 @@ import React, { useState } from "react";
 //Styles
 import "./FormExpense.component.css";
 
-const FormExpense = () => {
+const FormExpense = ({ onSaveExpensedata }) => {
   const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
+    title: "",
+    amount: "",
+    date: "",
   });
 
   const titleChangeHandler = (e) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        enteredTitle: e.target.value,
+        title: e.target.value,
       };
     });
   };
@@ -22,7 +22,7 @@ const FormExpense = () => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        enteredAmount: e.target.value,
+        amount: e.target.value,
       };
     });
   };
@@ -30,22 +30,35 @@ const FormExpense = () => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        enteredDate: e.target.value,
+        date: e.target.value,
       };
     });
   };
-  console.log(userInput);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setUserInput({
+      title: "",
+      amount: "",
+      date: "",
+    });
+    onSaveExpensedata(userInput);
+  };
 
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            value={userInput.title}
+            type="text"
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
           <input
+            value={userInput.amount}
             type="number"
             min="0.01"
             step="0.01"
@@ -55,6 +68,7 @@ const FormExpense = () => {
         <div className="new-expense__control">
           <label>Date</label>
           <input
+            value={userInput.date}
             type="date"
             min="2019-01-01"
             max="2022-12-31"
