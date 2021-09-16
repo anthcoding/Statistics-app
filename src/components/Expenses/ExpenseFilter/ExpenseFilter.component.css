@@ -1,0 +1,27 @@
+.expense-filter__container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.expense-filter__title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  color: #ffffff;
+}
+.expense-filter__selector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 50%;
+}
+
+.expense-filter__selector select {
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 6px;
+}

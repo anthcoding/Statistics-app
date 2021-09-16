@@ -30,7 +30,7 @@ const FormExpense = ({ onSaveExpensedata }) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        date: e.target.value,
+        date: new Date(e.target.value),
       };
     });
   };
