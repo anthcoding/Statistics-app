@@ -9,6 +9,7 @@ import ExpenseItem from "./components/Expenses/ExpenseItem/ExpenseItem.component
 import Card from "./components/UI/Card/Card.component";
 import NewExpense from "./components/NewExpense/NewExpense.component";
 import ExpenseFilter from "./components/Expenses/ExpenseFilter/ExpenseFilter.component";
+import ExpensesChart from "./components/Expenses/ExpenseChart/ExpensesChart";
 
 const App = () => {
   const [expenses, setExpenses] = useState(Data);
@@ -37,6 +38,7 @@ const App = () => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+        <ExpensesChart expenses={filteredExpenses} />
         {filteredExpenses.map((item) => {
           return <ExpenseItem key={item.id} item={item} />;
         })}

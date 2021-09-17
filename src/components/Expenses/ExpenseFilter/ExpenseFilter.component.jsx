@@ -11,9 +11,9 @@ const ExpenseFilter = ({ onChangeFilter, selected }) => {
       <div className="expense-filter__title">Filter By Year</div>
       <div className="expense-filter__selector">
         <select name="years" value={selected} onChange={selectHandler}>
+          <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
-          <option value="2019">2019</option>
         </select>
       </div>
     </div>
